@@ -1,0 +1,24 @@
+# @package _global_
+
+model:
+  ssm_init:
+    C_init: lecun_normal
+    dt_min: 0.002
+    dt_max: 0.1
+    conj_sym: true
+    clip_eigs: false
+  ssm:
+    discretization: async
+    d_model: 64
+    d_ssm: 64
+    ssm_block_size: 8
+    num_stages: 1
+    num_layers_per_stage: 6
+    dropout: 0.27
+    classification_mode: timepool
+    prenorm: true
+    batchnorm: true
+    bn_momentum: 0.95
+    pooling_stride: 8
+    pooling_mode: timepool
+    state_expansion_factor: 1

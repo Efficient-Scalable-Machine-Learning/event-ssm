@@ -1,0 +1,29 @@
+# @package _global_
+defaults:
+  - /model: ssc/medium
+
+task:
+  name: ssc-classification
+
+training:
+  num_epochs: 200
+  per_device_batch_size: 64
+  per_device_eval_batch_size: 128
+  num_workers: 4
+  time_jitter: 3
+  spatial_jitter: 1.0
+  noise: 100
+  drop_event: 0.1
+  max_drop_chunk: 0.02
+  cut_mix: 0.3
+  time_skew: 1.05
+  pad_unit: 8192
+
+optimizer:
+  ssm_base_lr: 0.000005
+  lr_factor: 5
+  warmup_epochs: 20
+  ssm_weight_decay: 0.0
+  weight_decay: 0.05
+  schedule: cosine
+  accumulation_steps: 1

@@ -1,0 +1,12 @@
+defaults:
+  - _self_
+  - system: local
+  - task: spiking-heidelberg-digits
+  - logging: local
+
+seed: 1234
+checkpoint: null
+
+hydra:
+  run:
+    dir: ${output_dir}/hydra-outputs/${now:%Y-%m-%d-%H-%M-%S}

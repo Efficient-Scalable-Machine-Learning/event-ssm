@@ -1,0 +1,11 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+jax[cuda12]
+flax
+jaxtyping
+optax
+torch
+torchvision
+torchaudio
+wandb
+tonic
+hydra-core

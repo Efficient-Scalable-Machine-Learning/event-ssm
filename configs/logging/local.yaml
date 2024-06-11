@@ -1,0 +1,6 @@
+log_dir: ${output_dir}
+interval: 1000
+wandb: False
+summary_metric: "Performance/Validation accuracy"
+project: ???
+entity: ???

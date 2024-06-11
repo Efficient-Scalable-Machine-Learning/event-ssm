@@ -1,0 +1,5 @@
+# @package _global_
+
+data_dir: ./data
+output_dir: ./outputs/${now:%Y-%m-%d-%H-%M-%S}
+checkpoint_dir: ./checkpoints
