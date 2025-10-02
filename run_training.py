@@ -3,7 +3,7 @@ from omegaconf import OmegaConf as om
 from omegaconf import DictConfig, open_dict
 from functools import partial
 import os
-
+import numpy as np
 import jax.random
 from flax import jax_utils
 from flax.training import checkpoints
@@ -99,6 +99,7 @@ def main(config: DictConfig):
         om.save(config, f)
 
     # Set the random seed manually for reproducibility.
+    np.random.seed(config.seed)
     key = jax.random.PRNGKey(config.seed)
     init_key, dropout_key = jax.random.split(key)
 
