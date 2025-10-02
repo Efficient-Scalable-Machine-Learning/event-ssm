@@ -152,7 +152,7 @@ def get_first_device(x):
 def print_model_size(params, name=''):
     fn_is_complex = lambda x: x.dtype in [np.complex64, np.complex128]
     param_sizes = map_nested_fn(lambda k, param: param.size * (2 if fn_is_complex(param) else 1))(params)
-    total_params_size = sum(jax.tree_leaves(param_sizes))
+    total_params_size = sum(jax.tree.leaves(param_sizes))
     print('[*] Model parameter count:', total_params_size)
 
 

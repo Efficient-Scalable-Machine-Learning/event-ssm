@@ -61,7 +61,7 @@ class TrainerModule:
         self.best_eval_metrics = {}
 
         # logger details
-        self.log_dir = os.path.join(self.log_config.log_dir)
+        self.log_dir = os.path.abspath(os.path.join(self.log_config.log_dir))
         print('[*] Logging to', self.log_dir)
 
         if not os.path.isdir(self.log_dir):
@@ -72,7 +72,7 @@ class TrainerModule:
             os.makedirs(os.path.join(self.log_dir, 'checkpoints'))
 
         num_parameters = int(sum(
-            [arr.size for arr in jax.tree_flatten(self.train_state.params)[0]
+            [arr.size for arr in jax.tree.flatten(self.train_state.params)[0]
              if isinstance(arr, Array)]
         ) / self.world_size)
         print("[*] Number of model parameters:", num_parameters)

@@ -2,6 +2,12 @@
 ![Figure 1](docs/figure1.png)
 This is the official implementation of our paper [Scalable Event-by-event Processing of Neuromorphic Sensory Signals With Deep State-Space Models
 ](https://arxiv.org/abs/2404.18508).
+## Version 0.2 released
+- Fixed a bug in the event tokenization for DVS. Improves our DVS Gestures result to 99.2% accuracy (without using spatial convolutions at all)
+- Updated DVS configs
+- Compatibility with recent JAX versions >= 0.7.1
+
+## Introduction
 The core motivation for this work was the irregular time-series modeling problem presented in the paper [Simplified State Space Layers for Sequence Modeling
 ](https://arxiv.org/abs/2208.04933). 
 We acknowledge the awesome [S5 project](https://github.com/lindermanlab/S5) and the trainer class provided by this [UvA tutorial](https://uvadlc-notebooks.readthedocs.io/en/latest/tutorial_notebooks/guide4/Research_Projects_with_JAX.html), which highly influenced our code.
