@@ -23,6 +23,15 @@ Our contributions are
 - formulating neuromorphic event-streams as a language modeling problem with **asynchronous tokens**
 - effectively model event-based vision **without frames and without CNNs** 
 
+## Results
+| Dataset | Accuracy (%) | Checkpoint |
+| ------- | -------- | ---------- |
+| SHD | 95.9 | [medium](https://datashare.tu-dresden.de/s/kyx86AZ9dsjyGdn) |
+| SSC | 85.3 | small  |
+| SSC | 88.4 | [medium](https://datashare.tu-dresden.de/s/rBRpdam2eGpiQfJ) |
+| DVS | 98.1 | [small](https://datashare.tu-dresden.de/s/CLJFGTEPmCJy9yf)  |
+| DVS | 99.2 | [medium](https://datashare.tu-dresden.de/s/PaanHj24JpfKk5t) |
+
 ## Installation
 The project is implemented in [JAX](https://github.com/google/jax) with [Flax](https://flax.readthedocs.io/en/latest/). 
 By default, we install JAX with GPU support with CUDA >= 12.0.
