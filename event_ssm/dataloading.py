@@ -66,9 +66,19 @@ def event_stream_collate_fn(batch, resolution, pad_unit, cut_mix=0.0, no_time_in
         tokens = [e['x'][:-1].astype(np.int32) for e in x]
     elif len(resolution) == 2:
         width, height = resolution
+        
+        # limit data range to sensor size to avoid out of range tokens
+        for e in x:
+            np.clip(e['x'], 0, width - 1, out=e['x'])
+            np.clip(e['y'], 0, height - 1, out=e['y'])
+
         tokens = [(
-            (width * height * e['p'][:-1].astype(np.int32)) + (height * e['x'][:-1]) + e['y'][:-1]
-        ).astype(np.int32) for e in x]
+            (width * height * e['p'][:-1].astype(np.int32)) + 
+            (height * e['x'][:-1].astype(np.int32)) +
+            e['y'][:-1].astype(np.int32)
+        ) for e in x]
+        assert all(t.max() < width * height * 2 for t in tokens), "Event coordinates exceed specified resolution"
+        assert all(t.min() >= 0 for t in tokens), "Event coordinates are negative"
     else:
         raise ValueError('resolution must contain 1 or 2 elements')
 
