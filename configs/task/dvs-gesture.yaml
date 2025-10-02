@@ -1,15 +1,15 @@
 # @package _global_
 defaults:
-  - /model: dvs/small
+  - /model: dvs/medium
 
 task:
   name: dvs-gesture-classification
 
 training:
-  num_epochs: 100
-  per_device_batch_size: 16
+  num_epochs: 200
+  per_device_batch_size: 32
   per_device_eval_batch_size: 4
-  num_workers: 4
+  num_workers: 6
   time_jitter: 5
   spatial_jitter: 0.3
   noise: 0.0
@@ -20,7 +20,7 @@ training:
   max_scale: 1.2
   max_drop_chunk: 0.02
   cut_mix: 0.4
-  pad_unit: 524288
+  pad_unit: 65536
   slice_events: 65536
   validate_on_test: true
 
@@ -31,4 +31,4 @@ optimizer:
   ssm_weight_decay: 0.0
   weight_decay: 0.02
   schedule: cosine
-  accumulation_steps: 4
+  accumulation_steps: 1
